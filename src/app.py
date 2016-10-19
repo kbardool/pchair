@@ -7,7 +7,7 @@ __author__ = 'KBardool'
 
 app = Flask(__name__)
 
-app.config.from_object('src.config.py')
+app.config.from_object('src.config')
 
 app.secret_key = '12345'
 
