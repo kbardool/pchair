@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Alert Information
+            <small> {{ alert._id }}</small>
+        </h1>
+    </div>
+    <div class="list-group">
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">Alert Title: {{ alert.item.name }}</h4>
+            <p class="list-group-item-text">
+                Alert price limit: <strong> {{ alert.price_limit }}</strong> <br/>
+                Alert email : <strong> {{ alert.user_email }}</strong> <br/>
+                Item id : <strong> {{ alert.item_id }}</strong> <br/>
+                Item Name : <strong> {{ alert.item.name }}</strong> <br/>
+                Item URL : <strong> {{ alert.item.url }}</strong> <br/>
+                Item Price : <strong> {{ alert.item.price }}</strong> <br/>
+                Last checked on : <strong> {{ alert.last_checked.strftime("%d-%m-%Y at %H:%M") }}</strong></p>
+        </a>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-default" href="{{ alert.item.url }}" role="button">Visit Site</a>
+                <a class="btn btn-warning" href="{{ url_for('alerts.edit_alert',alert_id = alert._id) }}" role="button">Edit Alert</a>
+                {% if alert.active %}
+                    <a class="btn btn-danger" href="{{ url_for('alerts.deactivate_alert', alert_id = alert._id) }}"
+                       role="button">Deactivate Alert</a>
+                {% else %}
+                    <a class="btn btn-success" href="{{ url_for('alerts.activate_alert', alert_id = alert._id) }}"
+                       role="button">Activate Alert</a>
+                    <a class="btn btn-danger" href="{{ url_for('alerts.delete_alert', alert_id = alert._id) }}"
+                       role="button">Delete Alert</a>
+                {% endif %}
+                <a class="btn btn-warning" href="{{ url_for('alerts.check_alert_price', alert_id = alert._id) }}"
+                   role="button">Check Alert Price</a>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

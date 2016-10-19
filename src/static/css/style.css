@@ -1,0 +1,17 @@
+.form-style{
+    max-width: 640px;
+    /* top/bottom: 0   left/right: auto */
+    margin: 0 auto;
+
+    background-color: #E9E9E9;
+    padding: 20px;
+
+    border: 1px solid #D5D5D5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 4px;
+}
+
+.text-red {
+    color:  #DB2039
+}
