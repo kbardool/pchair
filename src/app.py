@@ -6,8 +6,14 @@ from common.database import Database
 __author__ = 'KBardool'
 
 app = Flask(__name__)
-app.config.from_object('config')
+
+app.config.from_object('src.config.py')
+
 app.secret_key = '12345'
+
+
+
+
 
 @app.before_first_request
 def init_db():
