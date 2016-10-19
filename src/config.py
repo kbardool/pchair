@@ -1,6 +1,6 @@
 __author__ = 'KBardool'
 
-DEBUG  = False
+DEBUG  = True
 
 # frozen set is immutable
-ADMINS = frozenset([ 'kbardool@aol.com' ])
+ADMINS = frozenset([ os.environ.get(ADMIN_ACCOUNT) ])
